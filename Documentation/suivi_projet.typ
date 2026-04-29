@@ -108,9 +108,7 @@ Le projet suit l'architecture *ECB*.
 Le chef de projet assure la *transmission des informations entre le client et le reste de
 l'équipe*. Il met en place le support d'information : définition des échéances, organisation
 des réunions d'avancement, et s'assure que chaque membre dispose des informations
-nécessaires pour avancer.
-
-Pour ce faire, j'ai crée un discord qui nous sert de moyen de communication
+nécessaires pour avancer. Un serveur discord a été crée pour pouvoir se donner les informations et faire les réunions.
 
 #heading(level: 2, numbering: none)[Objectifs]
 
@@ -158,7 +156,7 @@ Pour ce faire, j'ai crée un discord qui nous sert de moyen de communication
 #heading(level: 1, numbering: "1.")[Plan de projet]
 
 #table(
-  columns: (0.8cm, 4.5cm, 2.8cm, 1.6cm, 1.8cm, 1.8cm, 2cm),
+  columns: (0.8cm, 4.5cm, 3.5cm, 1.8cm, 1.8cm, 1.8cm, 3cm),
   stroke: 0.5pt + rgb("#AAAAAA"),
   fill: (_, row) => if row == 0 { bleu2 } else if (
     row == 1 or row == 5 or row == 9 or row == 13 or row == 17 or row == 21
@@ -174,57 +172,153 @@ Pour ce faire, j'ai crée un discord qui nous sert de moyen de communication
 
   // Section 1
   sec-cell("1 — Analyse & Conception", 7),
+
   data-cell[1.1],
   data-cell(align-h: left)[Mise en place des réunions],
   data-cell[Chef projet],
   data-cell[🔴 Haute],
+  data-cell[13 avril],
   data-cell[],
-  data-cell[],
-
-  data-cell[⬜ À faire],
+  data-cell[🔵 En cours],
 
   data-cell[1.2],
-  data-cell(align-h: left)[Diagramme de robustesse ECB],
-  data-cell[Équipe],
+  data-cell(align-h: left)[Diagramme ECB],
+  data-cell[Responsable Technique],
   data-cell[🔴 Haute],
+  data-cell[24 avril],
   data-cell[],
-  data-cell[],
-  data-cell[⬜ À faire],
+  data-cell[🔵 En cours],
 
   data-cell[1.3],
   data-cell(align-h: left)[Diagramme de classes UML],
-  data-cell[Équipe],
+  data-cell[Responsable Modèle],
   data-cell[🔴 Haute],
+  data-cell[24 avril],
   data-cell[],
-  data-cell[],
-  data-cell[⬜ À faire],
+  data-cell[🔵 En cours],
 
   // Section 2
   sec-cell("2 — Développement Entity", 7),
 
+  data-cell[2.1],
+  data-cell(align-h: left)[Jeu],
+  data-cell[Responsable Noyau fonctionnel],
+  data-cell[🟡 Moyenne],
+  data-cell[28 avril],
+  data-cell[1 mai],
+  data-cell[🔵 En cours],
+
+  data-cell[2.2],
+  data-cell(align-h: left)[Pirate],
+  data-cell[Responsable Noyau fonctionnel],
+  data-cell[🟡 Moyenne],
+  data-cell[28 avril],
+  data-cell[1 mai],
+  data-cell[🔵 En cours],
+
+  data-cell[2.3],
+  data-cell(align-h: left)[Case],
+  data-cell[Responsable Noyau fonctionnel],
+  data-cell[🟡 Moyenne],
+  data-cell[28 avril],
+  data-cell[1 mai],
+  data-cell[🔵 En cours],
+
+  data-cell[2.4],
+  data-cell(align-h: left)[Plateau],
+  data-cell[Responsable Noyau fonctionnel],
+  data-cell[🟡 Moyenne],
+  data-cell[28 avril],
+  data-cell[1 mai],
+  data-cell[🔵 En cours],
+
   // Section 3
   sec-cell("3 — Développement Control", 7),
 
+  data-cell[3.1],
+  data-cell(align-h: left)[ControlLancerDe],
+  data-cell[Responsable Noyau fonctionnel],
+  data-cell[🔴 Haute],
+  data-cell[28 avril],
+  data-cell[1 mai],
+  data-cell[🔵 En cours],
+
+  data-cell[3.2],
+  data-cell(align-h: left)[ControlVerifierFinPartie],
+  data-cell[Responsable Noyau fonctionnel],
+  data-cell[🔴 Haute],
+  data-cell[28 avril],
+  data-cell[1 mai],
+  data-cell[🔵 En cours],
+
+  data-cell[3.3],
+  data-cell(align-h: left)[ControlJeuPirate],
+  data-cell[Responsable Noyau fonctionnel],
+  data-cell[🔴 Haute],
+  data-cell[28 avril],
+  data-cell[1 mai],
+  data-cell[🔵 En cours],
+
+  data-cell[3.4],
+  data-cell(align-h: left)[ControlDeplacement],
+  data-cell[Responsable Noyau fonctionnel],
+  data-cell[🔴 Haute],
+  data-cell[28 avril],
+  data-cell[1 mai],
+  data-cell[🔵 En cours],
+
   // Section 4
   sec-cell("4 — Développement Boundary", 7),
-  data-cell[4.1],
-  data-cell(align-h: left)[UI (Swing)],
-  data-cell[],
-  data-cell[🔴 Haute],
-  data-cell[],
-  data-cell[],
 
-  data-cell[⬜ À faire],
+  data-cell[4.1],
+  data-cell(align-h: left)[JFrame],
+  data-cell[Responsable IHM],
+  data-cell[🔴 Haute],
+  data-cell[28 avril],
+  data-cell[],
+  data-cell[🔵 En cours],
+
+  data-cell[4.2],
+  data-cell(align-h: left)[IBoundary],
+  data-cell[Responsable IHM],
+  data-cell[🔴 Haute],
+  data-cell[28 avril],
+  data-cell[1 mai],
+  data-cell[🔵 En cours],
+
+  data-cell[4.3],
+  data-cell(align-h: left)[IPirate],
+  data-cell[Responsable IHM],
+  data-cell[🔴 Haute],
+  data-cell[28 avril],
+  data-cell[1 mai],
+  data-cell[🔵 En cours],
+
+  data-cell[4.2],
+  data-cell(align-h: left)[INoyauFonctionnel],
+  data-cell[Responsable IHM],
+  data-cell[🔴 Haute],
+  data-cell[28 avril],
+  data-cell[1 mai],
+  data-cell[🔵 En cours],
+
+  data-cell[4.2],
+  data-cell(align-h: left)[BoundaryJeuPirate],
+  data-cell[Responsable IHM],
+  data-cell[🔴 Haute],
+  data-cell[28 avril],
+  data-cell[],
+  data-cell[🔵 En cours],
 
   // Section 5
   sec-cell("5 — Tests", 7),
+
   data-cell[5.1],
   data-cell(align-h: left)[Tests unitaires],
   data-cell[],
   data-cell[🟡 Moyenne],
   data-cell[],
   data-cell[],
-
   data-cell[⬜ À faire],
 
   data-cell[5.2],
@@ -252,9 +346,109 @@ Pour ce faire, j'ai crée un discord qui nous sert de moyen de communication
   stroke: 0.5pt + rgb("#AAAAAA"),
   fill: (_, row) => if row == 0 { bleu2 } else if calc.odd(row) { gris } else { white },
 
-  hdr-cell[Module], hdr-cell[Tâche], hdr-cell[Responsable], hdr-cell[Statut], hdr-cell[% Avancement],
+  hdr-cell[Module], hdr-cell[Tâche], hdr-cell[Développeur], hdr-cell[Statut], hdr-cell[% Avancement],
 
-  data-cell[Entity], data-cell(align-h: left)[Classe Pirate], data-cell[], data-cell[⬜ À faire], data-cell[0%],
+  data-cell[Entity],
+  data-cell(align-h: left)[Classe Pirate],
+  data-cell[Chef Projet, Responsable Noyau fonctionnel],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Entity],
+  data-cell(align-h: left)[Classe Jeu],
+  data-cell[Chef Projet, Responsable Noyau fonctionnel],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Entity],
+  data-cell(align-h: left)[Classe Plateau],
+  data-cell[Chef Projet, Responsable Noyau fonctionnel],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Entity],
+  data-cell(align-h: left)[Classe Case],
+  data-cell[Chef Projet, Responsable Noyau fonctionnel],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Entity],
+  data-cell(align-h: left)[Classe Point],
+  data-cell[Chef Projet],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Control],
+  data-cell(align-h: left)[Classe ControlLancerDe],
+  data-cell[Chef Projet, Responsable Noyau fonctionnel],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Control],
+  data-cell(align-h: left)[Classe ControlVerifierFinPartie],
+  data-cell[Chef Projet, Responsable Noyau fonctionnel],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Control],
+  data-cell(align-h: left)[Classe ControlJeuPirate],
+  data-cell[Chef Projet, Responsable Noyau fonctionnel],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Control],
+  data-cell(align-h: left)[Classe ControlDeplacement],
+  data-cell[Chef Projet, Responsable Noyau fonctionnel],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Boundary],
+  data-cell(align-h: left)[Composant Case],
+  data-cell[Responsable Technique],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Boundary],
+  data-cell(align-h: left)[Composant Plateau],
+  data-cell[Responsable Test Fonctionnel],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Boundary],
+  data-cell(align-h: left)[JFrame],
+  data-cell[Responsable IHM],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Boundary],
+  data-cell(align-h: left)[Composant Joueur],
+  data-cell[Responsable Modèle],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Boundary],
+  data-cell(align-h: left)[BoundaryJeuPirate],
+  data-cell[Chef Projet],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Boundary],
+  data-cell(align-h: left)[IBoundary],
+  data-cell[Responsable IHM],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Boundary],
+  data-cell(align-h: left)[IPirate],
+  data-cell[Responsable IHM],
+  data-cell[🔵 En cours],
+  data-cell[0%],
+
+  data-cell[Boundary],
+  data-cell(align-h: left)[INoyauFonctionnel],
+  data-cell[Responsable IHM],
+  data-cell[🔵 En cours],
+  data-cell[0%],
 
   table.cell(colspan: 4, fill: bleu, align: center + horizon, inset: 6pt)[
     #text(weight: "bold", fill: white)[AVANCEMENT GLOBAL]
@@ -295,7 +489,7 @@ Pour ce faire, j'ai crée un discord qui nous sert de moyen de communication
 
   data-cell[28 avril 2026],
   data-cell[Avancement \#3],
-  data-cell(align-h: left)[Terminer ECB et UML, répartition du développement],
+  data-cell(align-h: left)[Terminer ECB et UML pour le déplacement simple, répartition du développement],
   data-cell[Toute l'équipe],
 )
 
@@ -309,11 +503,25 @@ Pour ce faire, j'ai crée un discord qui nous sert de moyen de communication
 
   hdr-cell[Date limite], hdr-cell[Livrable], hdr-cell[Responsable],
 
-  data-cell[28 avril 2026], data-cell(align-h: left)[Diagrammes ECB & UML], data-cell[Chef projet + Équipe],
-  data-cell[], data-cell(align-h: left)[Entity (Joueur, De, Plateau) développées], data-cell[Responsable Noyau],
-  data-cell[], data-cell(align-h: left)[Control (NoyauJeu, DeService) développés], data-cell[Responsable Noyau],
-  data-cell[], data-cell(align-h: left)[Boundary (JeuUI, Observer) développée], data-cell[Responsable IHM],
-  data-cell[],
+  data-cell[28 avril 2026],
+  data-cell(align-h: left)[Diagrammes ECB & UML déplacement simple],
+  data-cell[Chef projet + Équipe],
+
+  data-cell[1 mai],
+  data-cell(align-h: left)[Entity (Joueur, Case, Plateau, Pirate) développées],
+  data-cell[Responsable Noyau],
+
+  data-cell[1 mai],
+  data-cell(
+    align-h: left,
+  )[Control (ControlLancerDe, ControlVerifierFinPartie, ControlJeuPirate, ControlDeplacement) développés],
+  data-cell[Responsable Noyau],
+
+  data-cell[1 mai],
+  data-cell(align-h: left)[Boundary (IBoundary, INoyauFonctionnel, IPirate, BoundaryJeuPirate) développée],
+  data-cell[Responsable IHM],
+
+  data-cell[1 mai],
   data-cell(align-h: left)[Tests unitaires et intégration validés],
   data-cell[Responsable Tests fonctionnels],
 )
