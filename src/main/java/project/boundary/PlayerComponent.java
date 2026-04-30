@@ -18,7 +18,6 @@ public class PlayerComponent extends javax.swing.JPanel {
      */
     public PlayerComponent() {
         initComponents();
-        playerIcon1.setPlayerName("plankton");
         Dimension size = new Dimension(255, 100);
         this.setPreferredSize(size);
         this.setSize(size);

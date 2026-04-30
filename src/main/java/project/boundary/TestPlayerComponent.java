@@ -8,15 +8,16 @@ package project.boundary;
  *
  * @author lucas
  */
-public class TestFrame extends javax.swing.JFrame {
+public class TestPlayerComponent extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TestFrame.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TestPlayerComponent.class.getName());
 
     /**
-     * Creates new form TestFrame
+     * Creates new form TestPlayerComponent
      */
-    public TestFrame() {
+    public TestPlayerComponent() {
         initComponents();
+        playerComponent1.setPlayerName("bob");
     }
 
     /**
@@ -45,25 +46,25 @@ public class TestFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(playerComponent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1090, Short.MAX_VALUE))
+            .addComponent(playerComponent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(188, 188, 188)
-                .addComponent(playerComponent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(323, Short.MAX_VALUE))
+            .addComponent(playerComponent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     int releaseCouter = 0;
     int pressCounter = 0;
     
+    private void playerPressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playerPressed
+        pressCounter++;
+        playerComponent1.setNbHeart(pressCounter%6);
+        System.out.println("mouse pressed : "+pressCounter);
+    }//GEN-LAST:event_playerPressed
+
     private void playerReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playerReleased
         releaseCouter++;
         if (releaseCouter%3==0) {
@@ -74,12 +75,6 @@ public class TestFrame extends javax.swing.JFrame {
         System.out.println("mouse released : "+releaseCouter);
         
     }//GEN-LAST:event_playerReleased
-
-    private void playerPressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playerPressed
-        pressCounter++;
-        playerComponent1.setNbHeart(pressCounter%6);
-        System.out.println("mouse pressed : "+pressCounter);
-    }//GEN-LAST:event_playerPressed
 
     /**
      * @param args the command line arguments
@@ -103,7 +98,7 @@ public class TestFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TestFrame().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TestPlayerComponent().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

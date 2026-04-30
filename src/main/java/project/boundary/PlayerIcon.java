@@ -75,16 +75,17 @@ public class PlayerIcon extends javax.swing.JPanel {
             g2d.drawImage(image, padding, padding, width-2*padding, imgHeight-2*padding, this);
         }
         
-        int fontSize = (int) (height * nameProportion);
-        g2d.setFont(new Font("Arial", Font.BOLD, fontSize));
-        g2d.setColor(Color.BLACK);
-        
-        FontMetrics fm = g2d.getFontMetrics();
-        int texteWidth = fm.stringWidth(playerName);
-        
-        int x = (width - texteWidth) / 2;
-        int y = (int) (height - (height*nameProportion)/fontSize);
         if (playerName != null) {
+            int fontSize = (int) (height * nameProportion);
+            g2d.setFont(new Font("Arial", Font.BOLD, fontSize));
+            g2d.setColor(Color.BLACK);
+
+            FontMetrics fm = g2d.getFontMetrics();
+            int texteWidth = fm.stringWidth(playerName);
+
+            int x = (width - texteWidth) / 2;
+            int y = (int) (height - (height*nameProportion)/fontSize);
+
             g2d.drawString(playerName, x, y);
         }
         
