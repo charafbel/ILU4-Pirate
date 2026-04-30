@@ -5,6 +5,7 @@ public class Pirate {
 
     public Pirate() {
         pv = 5;
+        position = new Point(0, 0);
     }
 
     public Point getPosition() {
