@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public interface De {
+public interface IDe {
     static Random random = new Random();
 
     static int LancerDe() {
