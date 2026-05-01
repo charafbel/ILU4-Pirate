@@ -1,4 +1,8 @@
 public class Plateau {
 
-    Case[] cases = new Case[30];
+    private Case[] cases = new Case[30];
+
+    public int getNbCases() {
+        return 30;
+    }
 }

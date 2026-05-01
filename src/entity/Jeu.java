@@ -10,4 +10,8 @@ public class Jeu {
         pirate1 = new Pirate();
         pirate2 = new Pirate();
     }
+
+    public Plateau getPlateau() {
+        return plateau;
+    }
 }
