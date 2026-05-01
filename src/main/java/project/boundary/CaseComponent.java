@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package project.boundary;
+import project.entity.Case;
 
 /**
  *
@@ -15,6 +16,7 @@ public class CaseComponent extends javax.swing.JPanel {
      */
     public CaseComponent() {
         initComponents();
+        this.setOpaque(false);
     }
 
     /**
@@ -26,19 +28,45 @@ public class CaseComponent extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        label1 = new java.awt.Label();
+
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        label1.setForeground(new java.awt.Color(0, 0, 0));
+        label1.setText("label1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(168, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void setEntite(Case maCase) {
+        if (maCase != null) {
+            label1.setText(String.valueOf(maCase.getNumero()));
+            if (maCase.isSpecial()) {
+                label1.setForeground(java.awt.Color.RED);
+                label1.setFont(label1.getFont().deriveFont(java.awt.Font.BOLD));
+            } else {
+                label1.setForeground(java.awt.Color.GRAY);
+                label1.setFont(label1.getFont().deriveFont(java.awt.Font.PLAIN));
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 }
