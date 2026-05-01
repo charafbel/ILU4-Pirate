@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package project.boundary;
-import java.awt.Color;
 import project.entity.Case;
 
 /**
@@ -32,7 +31,6 @@ public class CaseComponent extends javax.swing.JPanel {
         label1 = new java.awt.Label();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        setOpaque(false);
 
         label1.setForeground(new java.awt.Color(0, 0, 0));
         label1.setText("label1");
@@ -54,16 +52,20 @@ public class CaseComponent extends javax.swing.JPanel {
                 .addContainerGap(168, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    public void linkEntite(Case myCase){
-        label1.setText(String.valueOf(myCase.getNumero()));
-        if (myCase.isSpecial()){
-            //TODO
-        } else {
-            label1.setForeground(Color.white);
+    
+    public void setEntite(Case maCase) {
+        if (maCase != null) {
+            label1.setText(String.valueOf(maCase.getNumero()));
+            if (maCase.isSpecial()) {
+                label1.setForeground(java.awt.Color.RED);
+                label1.setFont(label1.getFont().deriveFont(java.awt.Font.BOLD));
+            } else {
+                label1.setForeground(java.awt.Color.GRAY);
+                label1.setFont(label1.getFont().deriveFont(java.awt.Font.PLAIN));
+            }
         }
-        repaint();
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
