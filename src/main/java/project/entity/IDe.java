@@ -3,9 +3,7 @@ package project.entity;
 import java.util.Random;
 
 public interface IDe {
-    static Random random = new Random();
+    int LancerDe();
 
-    static int LancerDe() {
-        return random.nextInt(1, 7);
-    }
+    static IDe ILancerDe = () -> new Random().nextInt(6) + 1;
 }

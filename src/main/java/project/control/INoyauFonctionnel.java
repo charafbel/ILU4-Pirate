@@ -1,7 +1,5 @@
 package project.control;
 
-import project.entity.Point;
-
 public interface INoyauFonctionnel {
     // info joueur 1
     int getPvJ1();
