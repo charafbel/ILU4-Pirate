@@ -2,18 +2,23 @@ package entity;
 import java.util.*;
 
 public class Pirate {
-
+	private String nomPirate;
     private int pv;
-    private Point position;
+    private int position;
     private List<Equipement> listEquipements;
 
-    public Pirate() {
+    public Pirate(String nomPirate) {
+    	    this.nomPirate = nomPirate;
         pv = 5;
-        position = new Point(0,0);
+        position = 0;
         listEquipements = new ArrayList<>();
     }
+    
+    public String getNomPirate() {
+    	    return this.nomPirate;
+    }
 
-    public Point getPosition() {
+    public int getPosition() {
         return position;
     }
 
@@ -25,7 +30,7 @@ public class Pirate {
     	    return this.listEquipements;
     }
 
-    public void setPosition(Point position) {
+    public void setPosition(int position) {
         this.position = position;
     }
 

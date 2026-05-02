@@ -9,8 +9,8 @@ public class Jeu {
 
     public Jeu() {
         plateau = new Plateau();
-        pirate1 = new Pirate();
-        pirate2 = new Pirate();
+        pirate1 = new Pirate("pirate1");
+        pirate2 = new Pirate("pirate2");
     }
 
     public Plateau getPlateau() {

@@ -1,11 +1,11 @@
 package entity;
 
 public abstract class Case {
-	private Point position; 
-	public Case(Point position) {
+	private int position; 
+	public Case(int position) {
 		this.position = position;
 	}
-	public Point getPosition() {
+	public int getPosition() {
 		return this.position;
 	}
 }

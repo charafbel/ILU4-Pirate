@@ -2,7 +2,7 @@ package entity;
 
 public class CaseBonus extends Case{
 	private Equipement typeBonus;
-	public CaseBonus(Point position,Equipement equipement) {
+	public CaseBonus(int position,Equipement equipement) {
 		super(position);
 		this.typeBonus = equipement;
 	}
