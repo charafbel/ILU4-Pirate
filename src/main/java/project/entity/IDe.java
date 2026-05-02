@@ -3,7 +3,7 @@ package project.entity;
 import java.util.Random;
 
 public interface IDe {
-    int ILancerDe();
+    int LancerDe();
 
-    static IDe LancerDe = () -> new Random().nextInt(6) + 1;
+    static IDe ILancerDe = () -> new Random().nextInt(6) + 1;
 }
