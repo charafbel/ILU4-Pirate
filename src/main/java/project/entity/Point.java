@@ -1,3 +1,5 @@
+package project.entity;
+
 public class Point {
 
     private int x;

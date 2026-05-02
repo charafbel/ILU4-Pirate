@@ -1,3 +1,5 @@
+package project.entity;
+
 public class Jeu {
 
     private Plateau plateau;
@@ -13,5 +15,17 @@ public class Jeu {
 
     public Plateau getPlateau() {
         return plateau;
+    }
+
+    public Pirate getPirate1() {
+        return pirate1;
+    }
+
+    public Pirate getPirate2() {
+        return pirate2;
+    }
+
+    public int getJoueurActuel() {
+        return JoueurActuel;
     }
 }

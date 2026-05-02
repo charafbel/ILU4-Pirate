@@ -1,3 +1,5 @@
+package project.entity;
+
 public class Case {
 
     private int numero;
