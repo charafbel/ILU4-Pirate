@@ -8,47 +8,51 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
-
 /**
  *
  * @author nassr
  */
 public class DéComponent extends javax.swing.JPanel {
+
     int de = 1;
     Random random = new Random();
+
     /**
      * Creates new form DéComponent
      */
     public DéComponent() {
         initComponents();
     }
+
     private void drawPoint(Graphics g, int x, int y, int size) {
-    g.fillOval(x - size/2, y - size/2, size, size);
-}
-    
- javax.swing.Timer timer = new javax.swing.Timer(100, new java.awt.event.ActionListener() {
-@Override
-public void actionPerformed(java.awt.event.ActionEvent e) {
-timerEventHandler(e);
-}
-});
-        private void timerEventHandler(java.awt.event.ActionEvent e) {
+        g.fillOval(x - size / 2, y - size / 2, size, size);
+    }
+
+    javax.swing.Timer timer = new javax.swing.Timer(100, new java.awt.event.ActionListener() {
+        @Override
+        public void actionPerformed(java.awt.event.ActionEvent e) {
+            timerEventHandler(e);
+        }
+    });
+
+    private void timerEventHandler(java.awt.event.ActionEvent e) {
         de = random.nextInt(6) + 1;
         repaint();
-        }
+    }
 
-public void lancerDe() {
-    timer.start();
-}
-    
+    public void lancerDe() {
+        timer.start();
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+
         int w = getWidth();
         int h = getHeight();
-        
+
         int taille = Math.min(w, h) / 2;
-        
+
         int x = (w - taille) / 2;
         int y = (h - taille) / 2;
         int centreX = x + taille / 2;
@@ -57,50 +61,52 @@ public void lancerDe() {
         int offset = taille / 4;
         int rayon = taille / 4;
         g.setColor(Color.WHITE);
-        g.fillRect(x, y, taille, taille);
+        g.fillRect(0, 0, w, h);
 
         g.setColor(Color.BLACK);
 
-switch (de) {
-    case 1 -> drawPoint(g, centreX, centreY, rayon);
+        switch (de) {
+            case 1 ->
+                drawPoint(g, centreX, centreY, rayon);
 
-    case 2 -> {
-        drawPoint(g, centreX - offset, centreY - offset, rayon);
-        drawPoint(g, centreX + offset, centreY + offset, rayon);
+            case 2 -> {
+                drawPoint(g, centreX - offset, centreY - offset, rayon);
+                drawPoint(g, centreX + offset, centreY + offset, rayon);
             }
 
-    case 3 -> {
-        drawPoint(g, centreX - offset, centreY - offset, rayon);
-        drawPoint(g, centreX, centreY, rayon);
-        drawPoint(g, centreX + offset, centreY + offset, rayon);
+            case 3 -> {
+                drawPoint(g, centreX - offset, centreY - offset, rayon);
+                drawPoint(g, centreX, centreY, rayon);
+                drawPoint(g, centreX + offset, centreY + offset, rayon);
             }
 
-    case 4 -> {
-        drawPoint(g, centreX - offset, centreY - offset, rayon);
-        drawPoint(g, centreX + offset, centreY - offset, rayon);
-        drawPoint(g, centreX - offset, centreY + offset, rayon);
-        drawPoint(g, centreX + offset, centreY + offset, rayon);
+            case 4 -> {
+                drawPoint(g, centreX - offset, centreY - offset, rayon);
+                drawPoint(g, centreX + offset, centreY - offset, rayon);
+                drawPoint(g, centreX - offset, centreY + offset, rayon);
+                drawPoint(g, centreX + offset, centreY + offset, rayon);
             }
 
-    case 5 -> {
-        drawPoint(g, centreX - offset, centreY - offset, rayon);
-        drawPoint(g, centreX + offset, centreY - offset, rayon);
-        drawPoint(g, centreX, centreY, rayon);
-        drawPoint(g, centreX - offset, centreY + offset, rayon);
-        drawPoint(g, centreX + offset, centreY + offset, rayon);
+            case 5 -> {
+                drawPoint(g, centreX - offset, centreY - offset, rayon);
+                drawPoint(g, centreX + offset, centreY - offset, rayon);
+                drawPoint(g, centreX, centreY, rayon);
+                drawPoint(g, centreX - offset, centreY + offset, rayon);
+                drawPoint(g, centreX + offset, centreY + offset, rayon);
             }
 
-    case 6 -> {
-        drawPoint(g, centreX - offset, centreY - offset, rayon);
-        drawPoint(g, centreX + offset, centreY - offset, rayon);
-        drawPoint(g, centreX - offset, centreY, rayon);
-        drawPoint(g, centreX + offset, centreY, rayon);
-        drawPoint(g, centreX - offset, centreY + offset, rayon);
-        drawPoint(g, centreX + offset, centreY + offset, rayon);
+            case 6 -> {
+                drawPoint(g, centreX - offset, centreY - offset, rayon);
+                drawPoint(g, centreX + offset, centreY - offset, rayon);
+                drawPoint(g, centreX - offset, centreY, rayon);
+                drawPoint(g, centreX + offset, centreY, rayon);
+                drawPoint(g, centreX - offset, centreY + offset, rayon);
+                drawPoint(g, centreX + offset, centreY + offset, rayon);
             }
-}
+        }
 
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -116,15 +122,13 @@ switch (de) {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 398, Short.MAX_VALUE)
+            .addGap(0, 138, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 298, Short.MAX_VALUE)
+            .addGap(0, 138, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
