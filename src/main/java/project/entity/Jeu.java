@@ -5,7 +5,7 @@ public class Jeu {
     private Plateau plateau;
     private Pirate pirate1;
     private Pirate pirate2;
-    private int JoueurActuel = 1;
+    private int joueurActuel = 1;
 
     public Jeu() {
         plateau = new Plateau();
@@ -26,6 +26,6 @@ public class Jeu {
     }
 
     public int getJoueurActuel() {
-        return JoueurActuel;
+        return joueurActuel;
     }
 }
