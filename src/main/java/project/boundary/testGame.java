@@ -1,3 +1,9 @@
+// DEBUG :
+// fleche gauche = avancer joueur 1 de 1
+// fleche droite = avancer joueur 2 de 1
+// fleche bas = diminuer la vie de joueur 1 de 1
+// fleche haut = diminuer la vie de joueur 2 de 1
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -108,24 +114,32 @@ public class testGame extends javax.swing.JFrame {
         player1Comp = new project.boundary.PlayerComponent();
         player2Comp = new project.boundary.PlayerComponent();
         deComp = new project.boundary.DéComponent();
+        deComp2 = new project.boundary.DéComponent();
         
         deComp.setPreferredSize(new java.awt.Dimension(100, 100));
+        deComp2.setPreferredSize(new java.awt.Dimension(100, 100));
         
         btnLancerDe = new JButton("Lancer / Stop Dé");
         btnLancerDe.setFocusable(false);
         btnLancerDe.addActionListener(e -> {
             if (!isRolling) {
                 deComp.lancerDe();
+                deComp2.lancerDe();
                 isRolling = true;
             } else {
                 deComp.timer.stop();
+                deComp2.timer.stop();
                 isRolling = false;
             }
         });
 
         
+        JPanel lesDeuxDesPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
+        lesDeuxDesPanel.add(deComp);
+        lesDeuxDesPanel.add(deComp2);
+        
         JPanel dicePanel = new JPanel(new BorderLayout());
-        dicePanel.add(deComp, BorderLayout.CENTER);
+        dicePanel.add(lesDeuxDesPanel, BorderLayout.CENTER);
         dicePanel.add(btnLancerDe, BorderLayout.SOUTH);
         
         JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 40, 10));
@@ -191,6 +205,7 @@ public class testGame extends javax.swing.JFrame {
     private project.boundary.PlayerComponent player1Comp;
     private project.boundary.PlayerComponent player2Comp;
     private project.boundary.DéComponent deComp;
+    private project.boundary.DéComponent deComp2;
     private javax.swing.JButton btnLancerDe;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
