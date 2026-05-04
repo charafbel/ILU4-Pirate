@@ -5,15 +5,15 @@ import javax.swing.JComponent;
 import project.entity.Pirate;
 
 public interface iBoundary {
-    void initPlateau();
+  void initPlateau();
 
-    void actualiserCoeurs(Pirate joueur, int nbCoeurs);
+  void actualiserCoeurs(Pirate joueur, int nbCoeurs);
 
-    int lancerDe();
+  void lancerDe();
 
-    void deplacerPirate(Pirate joueur, int destNum);
+  void deplacerPirate(Pirate joueur, int destNum);
 
-    void afficherNotification(String message);
+  void afficherNotification(String message);
 
-    void fermerNotification();
+  void fermerNotification();
 }
