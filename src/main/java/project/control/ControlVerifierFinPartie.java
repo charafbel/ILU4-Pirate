@@ -3,7 +3,7 @@ package project.control;
 import project.entity.Jeu;
 import project.entity.Pirate;
 
-public class ControlVerifierFinPartie {
+public class ControlVerifierFinPartie implements IControlVerifierFinPartie {
     Jeu jeu;
 
     public ControlVerifierFinPartie(Jeu jeu) {
@@ -11,6 +11,7 @@ public class ControlVerifierFinPartie {
         this.jeu = jeu;
     }
     
+    @Override
     public boolean estFinPartie(){
         Pirate J1 = jeu.getPirate1();
         Pirate J2 = jeu.getPirate2();
