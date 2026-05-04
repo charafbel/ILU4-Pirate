@@ -97,7 +97,7 @@ public class Board extends JLayeredPane {
         int x = wrapper.getX() + (wrapper.getWidth() / 2) - (playerPawn.getWidth() / 2);
         int y = wrapper.getY() + (wrapper.getHeight() / 2) - (playerPawn.getHeight() / 2);
         
-        int offset = (playerPawn.getWidth() / 4);
+        int offset = (playerPawn.getWidth() / 2);
 
         if (isPlayer1) {
             x = x - offset;
