@@ -2,11 +2,12 @@ package project.entity;
 
 public class CaseSansEffet implements Case {
 
-    public CaseSansEffet() {
-        super();
-    }
+  public CaseSansEffet() {
+    super();
+  }
 
-    public boolean isSpecial() {
-        return false;
-    }
+  @Override
+  public boolean isSpecial() {
+    return false;
+  }
 }

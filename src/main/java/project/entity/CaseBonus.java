@@ -2,18 +2,19 @@ package project.entity;
 
 public class CaseBonus implements Case {
 
-    private Equipement typeBonus;
+  private Equipement typeBonus;
 
-    public CaseBonus(Equipement equipement) {
-        super();
-        this.typeBonus = equipement;
-    }
+  public CaseBonus(Equipement equipement) {
+    super();
+    this.typeBonus = equipement;
+  }
 
-    public Equipement getTypeBonus() {
-        return this.typeBonus;
-    }
+  public Equipement getTypeBonus() {
+    return this.typeBonus;
+  }
 
-    public boolean isSpecial() {
-        return true;
-    }
+  @Override
+  public boolean isSpecial() {
+    return true;
+  }
 }
