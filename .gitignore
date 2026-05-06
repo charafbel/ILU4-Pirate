@@ -3,9 +3,5 @@
 .idea/misc.xml
 .idea/jarRepositories.xml
 /.idea
-src/.DS_Store
-src/.DS_Store
-src/main/java/.DS_Store
-src/main/java/project/.DS_Store
-src/main/.DS_Store
-.DS_Store
+
+/bin/
