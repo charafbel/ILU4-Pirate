@@ -1,59 +1,57 @@
 package project.control;
 
-import project.entity.Jeu;
-import project.entity.Pirate;
-
 public class AdaptateurNoyauFonctionnel implements INoyauFonctionnel {
 
-  Jeu jeu;
   IControlPirate controlPirate;
+  IControlJeu controlJeu;
+  IControlJeuPirate controlJeuPirate;
 
-  public AdaptateurNoyauFonctionnel(Jeu jeu, IControlPirate controlPirate) {
-    this.jeu = jeu;
+  public AdaptateurNoyauFonctionnel(
+    IControlPirate controlPirate,
+    IControlJeu controlJeu,
+    IControlJeuPirate controlJeuPirate
+  ) {
     this.controlPirate = controlPirate;
+    this.controlJeu = controlJeu;
+    this.contolJeuPirate = controlJeuPirate;
   }
 
+  @Override
   public int getPvJ1() {
-    return getPv(jeu.getPirate1());
+    return controlJeu.Pirate1().getPv();
   }
 
+  @Override
   public int getPvJ2() {
-    return getPv(jeu.getPirate2());
+    return controlJeu.Pirate2().getPv();
   }
 
+  @Override
   public int getPositionJ1() {
-    return getPosition(jeu.getPirate1());
+    return controlJeu.Pirate1().getPosition();
   }
 
+  @Override
   public int getPositionJ2() {
-    return getPosition(jeu.getPirate2());
+    return controlJeu.Pirate2().getPosition();
   }
 
+  @Override
   public String getNomJ1() {
-    return getNom(jeu.getPirate1());
+    return controlJeu.Pirate1().getNom();
   }
 
+  @Override
   public String getNomJ2() {
-    return getNom(jeu.getPirate2());
+    return controlJeu.Pirate2().getNom();
   }
 
+  @Override
   public String getJoueurActuel() {
-    int joueur = jeu.getJoueurActuel();
+    int joueur = controlJeu.JoueurActuel();
     if (joueur == 1) {
       return getNomJ1();
     }
     return getNomJ2();
-  }
-
-  private int getPv(Pirate pirate) {
-    return pirate.getPv();
-  }
-
-  private int getPosition(Pirate pirate) {
-    return pirate.getPosition();
-  }
-
-  private String getNom(Pirate pirate) {
-    return pirate.getNom();
   }
 }
