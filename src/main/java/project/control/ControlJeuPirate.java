@@ -1,7 +1,6 @@
 package project.control;
 
-import project.entity.Pirate;
-import project.entity.Jeu;
+import project.entity.*;
 
 public class ControlJeuPirate {
 	// TODO(Iboudary boundary;)
@@ -37,7 +36,10 @@ public class ControlJeuPirate {
 	public void tourDeJeu(Pirate pirate) {
 		int nbDeplacement = lanceerDe();
 		if (!estFinPartie(nbDeplacement)) {
-			controlActiverCase.activerCase(pirate, nbDeplacement);
+			controlDeplacement.deplacer(pirate,nbDeplacement);
+			Plateau plateau = jeu.getPlateau();
+			iCase caseCible = plateau.getCase(pirate.getPosition());
+			controlActiverCase.activerCase(pirate,caseCible);
 		} else {
 			// Afficher notification
 		}

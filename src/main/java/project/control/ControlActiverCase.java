@@ -1,37 +1,9 @@
 package project.control;
 
-import project.entity.Case;
-import project.entity.CaseBonus;
-import project.entity.CaseMalus;
-import project.entity.Equipement;
-import project.entity.Jeu;
-import project.entity.Piege;
-import project.entity.Pirate;
-import project.entity.Plateau;
-import project.entity.iCase;
+import project.entity.*;
 
 public class ControlActiverCase {
-    private Jeu jeu;
-
-    public ControlActiverCase(Jeu jeu) {
-        this.jeu = jeu;
-    }
-
-    public void activerCase(Pirate pirate, int nbDeplacement) {
-        Plateau plateau = jeu.getPlateau();
-        int targetPosition = pirate.getPosition() + nbDeplacement;
-
-        if (targetPosition > plateau.getNbCases()) {
-            int overshoot = targetPosition - plateau.getNbCases();
-            targetPosition = plateau.getNbCases() - overshoot;
-        }
-
-        if (targetPosition == plateau.getNbCases()) {
-            return;
-        }
-
-        iCase caseCible = plateau.getCase(targetPosition);
-
+    public void activerCase(Pirate pirate, iCase caseCible) {
         if (caseCible.isSpecial() && !caseCible.isActivated()) {
             if (caseCible instanceof CaseBonus) {
                 CaseBonus caseBonus = (CaseBonus) caseCible;
