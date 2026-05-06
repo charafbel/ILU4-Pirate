@@ -3,47 +3,60 @@ package project.control;
 import project.entity.*;
 
 public class ControlJeuPirate {
-	// TODO(Iboudary boundary;)
-	ControlDeplacement controlDeplacement;
-	ControlActiverCase controlActiverCase;
-	ControlVerifierFinPartie controlFinPartie;
-	LancerDeControler controlLancerDe;
-	Jeu jeu;
 
-	public ControlJeuPirate(ControlActiverCase controlActiverCase, ControlVerifierFinPartie controlFinPartie,
-			ControlDeplacement controlDeplacement, LancerDeControler controlLancerDe, Jeu jeu) {
-		super();
-		this.controlActiverCase = controlActiverCase;
-		this.controlFinPartie = controlFinPartie;
-		this.controlDeplacement = controlDeplacement;
-		this.controlLancerDe = controlLancerDe;
-		this.jeu = jeu;
-	}
+  // TODO(Iboudary boundary;)
+  ControlDeplacement controlDeplacement;
+  ControlActiverCase controlActiverCase;
+  ControlVerifierFinPartie controlFinPartie;
+  LancerDeControler controlLancerDe;
+  Jeu jeu;
 
-	public void deplacer(Pirate pirate, int nbCase) {
-		controlDeplacement.deplacer(pirate, nbCase);
-	}
+  public ControlJeuPirate(
+    ControlActiverCase controlActiverCase,
+    ControlVerifierFinPartie controlFinPartie,
+    ControlDeplacement controlDeplacement,
+    LancerDeControler controlLancerDe,
+    Jeu jeu
+  ) {
+    super();
+    this.controlActiverCase = controlActiverCase;
+    this.controlFinPartie = controlFinPartie;
+    this.controlDeplacement = controlDeplacement;
+    this.controlLancerDe = controlLancerDe;
+    this.jeu = jeu;
+  }
 
-	public int lanceerDe() {
-		return controlLancerDe.lanceDe();
-	}
+  public void deplacer(Pirate pirate, int nbCase) {
+    controlDeplacement.deplacer(pirate, nbCase);
+  }
 
-	public boolean estFinPartie(int nbDeplacement) {
-		return controlFinPartie.estFinPartie(jeu.getPirate1(), jeu.getPirate2(),
-				jeu.getPlateau().getNbCases() + nbDeplacement);
-	}
+  public void lanceerDe() {
+    De de = jeu.getDe();
+    de.setDe1(controlLancerDe.lanceDe());
+    de.setDe2(controlLancerDe.lanceDe());
+  }
 
-	public void tourDeJeu(Pirate pirate) {
-		int nbDeplacement = lanceerDe();
-		if (!estFinPartie(nbDeplacement)) {
-			controlDeplacement.deplacer(pirate,nbDeplacement);
-			Plateau plateau = jeu.getPlateau();
-			iCase caseCible = plateau.getCase(pirate.getPosition());
-			controlActiverCase.activerCase(pirate,caseCible);
-		} else {
-			// Afficher notification
-		}
+  public boolean estFinPartie() {
+    return controlFinPartie.estFinPartie(
+      jeu.getPirate1(),
+      jeu.getPirate2(),
+      jeu.getPlateau().getNbCases()
+    );
+  }
 
-		deplacer(pirate, nbDeplacement);
-	}
+  public void tourDeJeu(Pirate pirate) {
+    lanceerDe();
+    De de = jeu.getDe();
+    int nbDeplacement = de.getDe1() + de.getDe2()
+    if (!estFinPartie()) {
+      controlDeplacement.deplacer(pirate, nbDeplacement);
+      Plateau plateau = jeu.getPlateau();
+      iCase caseCible = plateau.getCase(pirate.getPosition());
+      controlActiverCase.activerCase(pirate, caseCible);
+    } else {
+      // Afficher notification
+    }
+
+    deplacer(pirate, nbDeplacement);
+  }
 }
