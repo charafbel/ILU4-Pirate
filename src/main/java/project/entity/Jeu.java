@@ -7,10 +7,10 @@ public class Jeu {
     private Pirate pirate2;
     private int joueurActuel = 1;
 
-    public Jeu() {
+    public Jeu(String nom1, String nom2) {
         plateau = new Plateau();
-        pirate1 = new Pirate("pirate1");
-        pirate2 = new Pirate("pirate2");
+        pirate1 = new Pirate(nom1);
+        pirate2 = new Pirate(nom2);
     }
 
     public Plateau getPlateau() {
