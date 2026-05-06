@@ -1,19 +1,22 @@
 package project.control;
 
+import project.entity.Pirate;
+
 public class AdaptateurNoyauFonctionnel implements INoyauFonctionnel {
 
   IControlPirate controlPirate;
   IControlJeu controlJeu;
-  IControlJeuPirate controlJeuPirate;
+
+  // IControlJeuPirate controlJeuPirate;
 
   public AdaptateurNoyauFonctionnel(
     IControlPirate controlPirate,
-    IControlJeu controlJeu,
-    IControlJeuPirate controlJeuPirate
+    IControlJeu controlJeu
+    // IControlJeuPirate controlJeuPirate
   ) {
     this.controlPirate = controlPirate;
     this.controlJeu = controlJeu;
-    this.contolJeuPirate = controlJeuPirate;
+    // this.contolJeuPirate = controlJeuPirate;
   }
 
   @Override
@@ -53,5 +56,35 @@ public class AdaptateurNoyauFonctionnel implements INoyauFonctionnel {
       return getNomJ1();
     }
     return getNomJ2();
+  }
+
+  @Override
+  public void fermerNotification() {
+    // TODO Auto-generated method stub
+  }
+
+  @Override
+  public void initPlateau() {
+    // TODO Auto-generated method stub
+  }
+
+  @Override
+  public void lancerDe() {
+    // TODO Auto-generated method stub
+  }
+
+  @Override
+  public void actualiserCoeurs(Pirate joueur, int nbCoeurs) {
+    // TODO Auto-generated method stub
+  }
+
+  @Override
+  public void afficherNotification(String message) {
+    // TODO Auto-generated method stub
+  }
+
+  @Override
+  public void deplacerPirate(Pirate joueur, int destNum) {
+    // TODO Auto-generated method stub
   }
 }
