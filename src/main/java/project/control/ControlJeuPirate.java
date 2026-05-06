@@ -47,7 +47,7 @@ public class ControlJeuPirate {
   public void tourDeJeu(Pirate pirate) {
     lanceerDe();
     De de = jeu.getDe();
-    int nbDeplacement = de.getDe1() + de.getDe2()
+    int nbDeplacement = de.getDe1() + de.getDe2();
     if (!estFinPartie()) {
       controlDeplacement.deplacer(pirate, nbDeplacement);
       Plateau plateau = jeu.getPlateau();
