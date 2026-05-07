@@ -1,13 +1,9 @@
 package project.boundary;
 
-import java.util.List;
-import javax.swing.JComponent;
-import project.entity.Pirate;
-
 public interface IBoundary {
-  void afficherPlateau();
+  void afficherCase(int indice,String type);
 
-  void afficherJoueur(String nomPirate, int nbCoeur, String equipement);
+  void afficherJoueur(String nomPirate, int nbCoeur, int equipement);
 
   void afficherFinJeu(String nomPirateGagnant);
 
