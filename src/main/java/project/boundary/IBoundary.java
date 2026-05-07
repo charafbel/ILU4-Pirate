@@ -7,11 +7,11 @@ import project.entity.Pirate;
 public interface IBoundary {
   void afficherPlateau();
 
-  void afficherJoueur(Pirate pirate);
+  void afficherJoueur(String nomPirate, int nbCoeur, String equipement);
 
-  void afficherFinJeu(Pirate pirate);
+  void afficherFinJeu(String nomPirateGagnant);
 
-  void afficherDeplacementPirate(Pirate pirate);
+  void afficherDeplacementPirate(String nomPirate,int positionDepart ,int positionArrive);
 
   void afficherLancerDe(int de);
 
