@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Case {
 
     private int numero;
@@ -15,4 +16,10 @@ public class Case {
     public boolean isSpecial() {
         return Speciale;
     }
+=======
+package project.entity;
+
+public interface Case {
+  boolean isSpecial();
+>>>>>>> feature/boundary-ihm
 }

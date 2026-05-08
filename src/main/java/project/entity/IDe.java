@@ -1,9 +1,8 @@
+package project.entity;
+
 import java.util.Random;
 
 public interface IDe {
-    static Random random = new Random();
+    int LancerDe();
 
-    static int LancerDe() {
-        return random.nextInt(1, 7);
-    }
 }
