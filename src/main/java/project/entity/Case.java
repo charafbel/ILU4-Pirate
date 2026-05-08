@@ -1,3 +1,4 @@
+package project.entity;
 
 public class Case implements iCase {
 
