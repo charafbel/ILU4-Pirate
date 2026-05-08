@@ -1,25 +1,26 @@
-<<<<<<< HEAD
-public class Case {
 
-    private int numero;
-    private boolean Speciale;
+public class Case implements iCase {
 
-    public Case(int numero, boolean speciale) {
-        this.numero = numero;
-        this.Speciale = speciale;
+    boolean activated;
+    boolean special;
+
+    public Case() {
+        activated = false;
+        special = false;
     }
 
-    public int getNumero() {
-        return numero;
-    }
-
+    @Override
     public boolean isSpecial() {
-        return Speciale;
+        return this.special;
     }
-=======
-package project.entity;
 
-public interface Case {
-  boolean isSpecial();
->>>>>>> feature/boundary-ihm
+    @Override
+    public boolean isActivated() {
+        return this.activated;
+    }
+
+    @Override
+    public void setActivated(boolean activated) {
+        this.activated = activated;
+    }
 }

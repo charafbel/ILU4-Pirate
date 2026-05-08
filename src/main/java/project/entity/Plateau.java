@@ -21,7 +21,7 @@ public class Plateau {
 
     private void initialiserPlateau() {
         for (int i = 0; i < nbCases; i++) {
-            cases[i] = new CaseSansEffet();
+            cases[i] = new Case();
         }
     }
 
@@ -30,7 +30,7 @@ public class Plateau {
         int placee = 0;
         while (placee < nb) {
             int indice = random.nextInt(nbCases);
-            if (cases[indice] instanceof CaseSansEffet) {
+            if (cases[indice] instanceof Case) {
                 if (bonus) {
                     cases[indice] = new CaseBonus(Equipement.BOUCLIER_RESSORT);
                 } else {

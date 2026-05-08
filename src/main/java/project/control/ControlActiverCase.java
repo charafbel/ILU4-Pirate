@@ -1,20 +1,25 @@
 package project.control;
+
 import project.entity.*;
 
 public class ControlActiverCase {
-	public void caseEffect(Pirate joueur,Plateau plateau) {
-		int indice = joueur.getPosition();
-		Case cases = plateau.getCase(indice);
-		if(cases.isSpecial()) {
-			if(cases instanceof CaseBonus) {
-				Equipement equipement = ((CaseBonus) cases).getTypeBonus();
-				joueur.addEquipement(equipement);
-			}else {
-				if(!joueur.hasEquipement()) joueur.setPv(joueur.getPv()-1);
-				else {
-					joueur.removeEquipement(Equipement.BOUCLIER_RESSORT);
-				}
-			}
-		}
-	}
+    public void activerCase(Pirate pirate, iCase caseCible) {
+        if (caseCible.isSpecial() && !caseCible.isActivated()) {
+            if (caseCible instanceof CaseBonus) {
+                CaseBonus caseBonus = (CaseBonus) caseCible;
+                pirate.addEquipement(caseBonus.getBonus());
+
+            } else if (caseCible instanceof CaseMalus) {
+                CaseMalus caseMalus = (CaseMalus) caseCible;
+                if (caseMalus.getTypeMalus() == Piege.RESSORT) {
+                    if (pirate.hasEquipement() && pirate.getListEquipements().contains(Equipement.BOUCLIER_RESSORT)) {
+                        pirate.removeEquipement(Equipement.BOUCLIER_RESSORT);
+                    } else {
+                        pirate.setPv(pirate.getPv() - 1);
+                    }
+                }
+            }
+            caseCible.setActivated(true);
+        }
+    }
 }
