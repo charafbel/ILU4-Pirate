@@ -1,7 +1,5 @@
 package project.control;
 
-import project.entity.Pirate;
-
 public class AdaptateurNoyauFonctionnel implements INoyauFonctionnel {
 
     IControlPirate controlPirate;

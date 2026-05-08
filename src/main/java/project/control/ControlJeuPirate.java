@@ -1,6 +1,5 @@
 package project.control;
 
-import javax.print.attribute.standard.JobHoldUntil;
 import project.boundary.IBoundary;
 import project.entity.*;
 
@@ -31,6 +30,7 @@ public class ControlJeuPirate {
     }
 
     public void lanceerDe() {
+        // lance les 2 de et les sauvegardes
         De de = jeu.getDe();
         de.setDe1(controlLancerDe.lanceDe());
         de.setDe2(controlLancerDe.lanceDe());
@@ -45,34 +45,34 @@ public class ControlJeuPirate {
     }
 
     public void init_game() {
+        // affiche les 2 joueurs avec leur paramètre
         Pirate pirate1 = jeu.getPirate1();
         Pirate pirate2 = jeu.getPirate2();
         boundary.afficherJoueur(pirate1.getNom(), pirate1.getPv(), 0);
         boundary.afficherJoueur(pirate2.getNom(), pirate2.getPv(), 0);
-        Plateau plateau = jeu.getPlateau();
-        for (int i = 0; i < plateau.getNbCases(); i++) {
-            boundary.afficherCase(i, plateau.getCase(i).getClass().toString());
-        }
     }
 
     public void tourDeJeu(Pirate pirate) {
+        // lance les de et ajoute les sauvegardes
         lanceerDe();
         De de = jeu.getDe();
         int nbDeplacement = de.getDe1() + de.getDe2();
-        if (!estFinPartie()) {
-            controlDeplacement.deplacer(pirate, nbDeplacement);
-            Plateau plateau = jeu.getPlateau();
-            iCase caseCible = plateau.getCase(pirate.getPosition());
-            controlActiverCase.activerCase(pirate, caseCible);
-        } else {
-            // Afficher notification
-            boundary.afficherFinJeu(pirate.getNom());
-        }
+
+        // deplace le pirate
+        controlDeplacement.deplacer(pirate, nbDeplacement);
+        Plateau plateau = jeu.getPlateau();
+        iCase caseCible = plateau.getCase(pirate.getPosition());
+        // active la case
+        controlActiverCase.activerCase(pirate, caseCible);
+        // affiche la case qui est active
+        boundary.afficherCase(pirate.getPosition() + 1, caseCible.toString());
+
         jeu.changementJoueur();
     }
 
     public void jeu() {
-        Pirate joueurActuel = jeu.getPirate1();
+        // initialise le joueur actuel
+        Pirate joueurActuel = null;
         while (!estFinPartie()) {
             joueurActuel =
                 jeu.getJoueurActuel() == 1
@@ -80,6 +80,7 @@ public class ControlJeuPirate {
                     : jeu.getPirate2();
             tourDeJeu(joueurActuel);
         }
+        // affiche le vainqueur
         boundary.afficherFinJeu(joueurActuel.getNom());
     }
 }
