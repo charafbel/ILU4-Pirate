@@ -5,24 +5,24 @@ import project.entity.Pirate;
 
 public class ControlJeu implements IControlJeu {
 
-  Jeu jeu;
+    Jeu jeu;
 
-  public ControlJeu(Jeu jeu) {
-    this.jeu = jeu;
-  }
+    public ControlJeu(Jeu jeu) {
+        this.jeu = jeu;
+    }
 
-  @Override
-  public int JoueurActuel() {
-    return jeu.getJoueurActuel();
-  }
+    @Override
+    public int JoueurActuel() {
+        return jeu.getJoueurActuel();
+    }
 
-  @Override
-  public Pirate Pirate1() {
-    return jeu.getPirate1();
-  }
+    @Override
+    public Pirate Pirate1() {
+        return jeu.getPirate1();
+    }
 
-  @Override
-  public Pirate Pirate2() {
-    return jeu.getPirate2();
-  }
+    @Override
+    public Pirate Pirate2() {
+        return jeu.getPirate2();
+    }
 }
