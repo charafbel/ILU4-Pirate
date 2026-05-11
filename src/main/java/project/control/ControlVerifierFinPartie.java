@@ -1,5 +1,6 @@
 package project.control;
 
+import java.util.function.Predicate;
 import project.entity.Jeu;
 import project.entity.Pirate;
 
@@ -21,16 +22,8 @@ public class ControlVerifierFinPartie implements IControlVerifierFinPartie {
     }
 
     public boolean estFinPartie(Pirate J1, Pirate J2, int nb_cases) {
-        if (J1.getPosition() == nb_cases) {
-            return true;
-        } else if (J2.getPosition() == nb_cases) {
-            return true;
-        } else if (J1.getPv() <= 0) {
-            return true;
-        } else if (J2.getPv() <= 0) {
-            return true;
-        }
+        Predicate<Pirate> estHorsJeu = pirate -> pirate.getPosition() == nb_cases || pirate.getPv() <= 0;
  
-        return false;
+        return estHorsJeu.test(J1) || estHorsJeu.test(J2);
     }
 }
