@@ -14,6 +14,7 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 /**
  *
@@ -118,6 +119,14 @@ public class Board extends JLayeredPane {
         this.add(notificationComponent, LAYER_NOTIFICATIONS);
         this.moveToFront(notificationComponent);
         this.repaint();
+    }
+    
+    public void showTemporaryNotification(JComponent notificationComponent, int x, int y, int delayMs) {
+        showNotification(notificationComponent, x, y);
+        
+        Timer timer = new Timer(delayMs, e -> removeNotification(notificationComponent));
+        timer.setRepeats(false);
+        timer.start();
     }
     
     public void removeNotification(JComponent notificationComponent) {
