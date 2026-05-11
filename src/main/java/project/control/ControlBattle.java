@@ -3,7 +3,15 @@ package project.control;
 import project.entity.Pirate;
 
 public class ControlBattle implements IControlBattle{ 
-	LancerDeControler lancerDeControler = new LancerDeControler();
+	LancerDeControler lancerDeControler;
+		
+	
+	public ControlBattle(LancerDeControler lancerDeControler) {
+		super();
+		this.lancerDeControler = lancerDeControler;
+	}
+
+
 	@Override
 	public void battle(Pirate pirate1, Pirate pirate2) {
 		if(pirate1.getPosition() == pirate2.getPosition()) {
