@@ -6,20 +6,19 @@ import project.entity.*;
 
 public class LancerDeControler {
 
-    private IBoundary boundary;
+  private IBoundary boundary;
 
-    public LancerDeControler(IBoundary boundary) {
-        this.boundary = boundary;
-    }
+  public LancerDeControler(IBoundary boundary) {
+    this.boundary = boundary;
+  }
 
-    public int lanceDe() {
-        IDe de = () -> {
-            Random random = new Random();
-            int result = random.nextInt(1, 7);
-            return result;
-        };
-        int valeur = de.LancerDe();
-        boundary.afficherLancerDe(valeur);
-        return valeur;
-    }
+  public int lanceDe() {
+    IDe de = () -> {
+      Random random = new Random();
+      int result = random.nextInt(1, 7);
+      return result;
+    };
+    int valeur = de.LancerDe();
+    return valeur;
+  }
 }
