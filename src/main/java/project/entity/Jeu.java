@@ -6,13 +6,11 @@ public class Jeu {
     private Pirate pirate1;
     private Pirate pirate2;
     private int joueurActuel = 1;
-    private De de;
 
     public Jeu(String nom1, String nom2) {
         plateau = new Plateau();
         pirate1 = new Pirate(nom1);
         pirate2 = new Pirate(nom2);
-        de = new De();
     }
 
     public Plateau getPlateau() {
@@ -29,10 +27,6 @@ public class Jeu {
 
     public int getJoueurActuel() {
         return joueurActuel;
-    }
-
-    public De getDe() {
-        return de;
     }
 
     public void changementJoueur() {

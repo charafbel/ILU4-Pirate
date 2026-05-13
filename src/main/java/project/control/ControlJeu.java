@@ -2,6 +2,7 @@ package project.control;
 
 import project.entity.Jeu;
 import project.entity.Pirate;
+import project.entity.Plateau;
 
 public class ControlJeu implements IControlJeu {
 
@@ -12,17 +13,27 @@ public class ControlJeu implements IControlJeu {
     }
 
     @Override
-    public int JoueurActuel() {
+    public int joueurActuel() {
         return jeu.getJoueurActuel();
     }
 
     @Override
-    public Pirate Pirate1() {
+    public Pirate pirate1() {
         return jeu.getPirate1();
     }
 
     @Override
-    public Pirate Pirate2() {
+    public Pirate pirate2() {
         return jeu.getPirate2();
+    }
+
+    @Override
+    public Plateau plateau() {
+        return jeu.getPlateau();
+    }
+
+    @Override
+    public void changerJoueur() {
+        jeu.changementJoueur();
     }
 }
