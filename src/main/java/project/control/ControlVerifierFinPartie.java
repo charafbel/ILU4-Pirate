@@ -3,6 +3,7 @@ package project.control;
 import project.boundary.IBoundary;
 import project.entity.Jeu;
 import project.entity.Pirate;
+import java.util.function.Predicate;
 
 public class ControlVerifierFinPartie implements IControlVerifierFinPartie {
 
@@ -25,16 +26,8 @@ public class ControlVerifierFinPartie implements IControlVerifierFinPartie {
   }
 
   public boolean estFinPartie(Pirate J1, Pirate J2, int nb_cases) {
-    if (J1.getPosition() == nb_cases - 1) {
-      return true;
-    } else if (J2.getPosition() == nb_cases - 1) {
-      return true;
-    } else if (J1.getPv() <= 0) {
-      return true;
-    } else if (J2.getPv() <= 0) {
-      return true;
-    }
-
-    return false;
+	  Predicate<Pirate> estHorsJeu = pirate -> pirate.getPosition() == nb_cases || pirate.getPv() <= 0;
+      
+      return estHorsJeu.test(J1) || estHorsJeu.test(J2);
   }
 }
