@@ -7,9 +7,8 @@ import java.util.function.Predicate;
 
 public class ControlVerifierFinPartie implements IControlVerifierFinPartie {
 
-  Jeu jeu;
-  IBoundary boundary;
-
+    Jeu jeu;
+    IBoundary boundary;
   public ControlVerifierFinPartie(IBoundary boundary, Jeu jeu) {
     super();
     this.jeu = jeu;

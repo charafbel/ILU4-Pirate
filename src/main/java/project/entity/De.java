@@ -1,23 +1,23 @@
 package project.entity;
 
+import java.util.Random;
+
 public class De {
 
-  private int de1;
-  private int de2;
+    private int value;
 
-  public int getDe1() {
-    return de1;
-  }
+    public int getValue() {
+        return value;
+    }
 
-  public int getDe2() {
-    return de2;
-  }
+    public int lanceDe() {
+        IDe de = () -> {
+            Random random = new Random();
+            int result = random.nextInt(1, 7);
+            return result;
+        };
+        value = de.LancerDe();
 
-  public void setDe1(int de1) {
-    this.de1 = de1;
-  }
-
-  public void setDe2(int de2) {
-    this.de2 = de2;
-  }
+        return value;
+    }
 }
