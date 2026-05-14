@@ -11,7 +11,7 @@ public class ControlActiverCase {
         this.boundary = boundary;
     }
 
-    public void activerCase(Pirate pirate, iCase caseCible) {
+    public void activerCase(Pirate pirate, Case caseCible) {
         if (caseCible.isSpecial() && !caseCible.isActivated()) {
             if (caseCible instanceof CaseBonus) {
                 CaseBonus caseBonus = (CaseBonus) caseCible;
@@ -33,5 +33,6 @@ public class ControlActiverCase {
             }
             caseCible.setActivated(true);
         }
+        boundary.afficherJoueur(pirate.getNom(), pirate.getPv(), pirate.getListEquipements().size());
     }
 }

@@ -1,7 +1,9 @@
 package project.control;
 
 import project.boundary.IBoundary;
-import project.entity.*;
+import project.entity.Case;
+import project.entity.Pirate;
+import java.util.function.BiPredicate;
 
 public class ControlJeuPirate implements IControlJeuPirate {
 
@@ -43,7 +45,10 @@ public class ControlJeuPirate implements IControlJeuPirate {
             controlJeu.plateau().getNbCases()
         );
     }
-
+    
+    public void activerCase(Pirate joueurActuel, Case c) {
+    	    controlActiverCase.activerCase(joueurActuel, c);
+    }
     @Override
     public void debutJeu() {
         // affiche les 2 joueurs avec leur paramètre
@@ -51,9 +56,19 @@ public class ControlJeuPirate implements IControlJeuPirate {
         Pirate pirate2 = controlJeu.pirate2();
         boundary.afficherJoueur(pirate1.getNom(), pirate1.getPv(), 0);
         boundary.afficherJoueur(pirate2.getNom(), pirate2.getPv(), 0);
+        lancerDe();
     }
 
-    public void FinDePartieAffichage() {}
+    public void FinDePartieAffichage() {
+    	    int nb_cases = controlJeu.plateau().getNbCases();
+    	    BiPredicate<Pirate,Pirate> testVainqueur = (p1,p2)->{
+    	    	    return p1.getPosition()==nb_cases || (p1.getPv()>0&&p2.getPv()<=0);
+    	    };
+    	    Pirate j1 = controlJeu.pirate1();
+    	    Pirate j2 = controlJeu.pirate2();
+    	    String vainqueur = testVainqueur.test(j1, j2)?j1.getNom():j2.getNom();
+    	    boundary.afficherNotitification("Le vainqueur de cette partie est "+vainqueur);
+    }
 
     @Override
     public void deroulementJeu() {
@@ -105,8 +120,14 @@ public class ControlJeuPirate implements IControlJeuPirate {
         // TEST SIMPLE DEPLACEMENT
         if (!estFinPartie()) {
             // a remplacer par l'activation de case
+        	    Pirate joueur = controlJeu.joueurActuel()==1?controlJeu.pirate1():controlJeu.pirate2();
+        	    Case c = controlJeu.plateau().getCase(joueur.getPosition());
+        	    activerCase(joueur, c);
             controlJeu.changerJoueur();
-            deroulementJeu();
+            lancerDe();
+        }else {
+        	    boundary.afficherNotitification("La partie est terminée");
+        	    FinDePartieAffichage();
         }
     }
 }

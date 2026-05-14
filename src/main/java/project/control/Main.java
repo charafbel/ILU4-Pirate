@@ -30,6 +30,6 @@ public class Main {
         );
 
         controlJeuPirate.debutJeu();
-        controlJeuPirate.deroulementJeu();
+        //controlJeuPirate.deroulementJeu();
     }
 }
