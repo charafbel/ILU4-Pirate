@@ -83,7 +83,7 @@ public class BoundaryJeuPirate implements IBoundary {
                 "Choisir nom joueur2 "
             );
         String nomJoueur2 = scan.nextLine();
-        scan.close();
+        //scan.close();
         controlJeuPirate.finInitJoueurs(nomJoueur1,nomJoueur2);
 	}
 

@@ -29,7 +29,7 @@ public class Main {
             controlJeu
         );
 
-        controlJeuPirate.debutJeu();
+        controlJeuPirate.initJoueurs();
         //controlJeuPirate.deroulementJeu();
     }
 }

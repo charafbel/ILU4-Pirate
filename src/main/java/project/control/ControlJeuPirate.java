@@ -40,7 +40,7 @@ public class ControlJeuPirate implements IControlJeuPirate {
     public void finInitJoueurs(String nom1 , String nom2) {
     	controlJeu.pirate1().setNom(nom1);
     	controlJeu.pirate2().setNom(nom2);
-
+    	debutJeu();
     }
 
     public void lancerDe() {
