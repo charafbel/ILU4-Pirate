@@ -20,6 +20,10 @@ public class ControlLancerDe implements IControlLancerDe {
     public void lancerUnDe() {
         de1.lanceDe();
     }
+    
+    public int getValLancerUnDe() {
+    	return de1.getValue();
+    }
 
     @Override
     public void lancer2De() {
