@@ -2,6 +2,7 @@ package project.boundary;
 
 import java.util.Scanner;
 
+import project.control.ControlJeuPirate;
 import project.control.IControlDeplacement;
 import project.control.IControlJeuPirate;
 import project.control.IControlLancerDe;
@@ -86,6 +87,13 @@ public class BoundaryJeuPirate implements IBoundary {
         //scan.close();
         controlJeuPirate.finInitJoueurs(nomJoueur1,nomJoueur2);
 	}
-
+	
+	@Override
+	public void saisirLancerBombe(IControlJeuPirate controlJeuPirate) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Choisir un offset pour lancer la bombe ");
+		int offset = scan.nextInt();
+		controlJeuPirate.lancementBombe(offset);
+	}
 
 }

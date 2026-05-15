@@ -42,7 +42,7 @@ public class Plateau {
     }
 
     private void placerCasesSpeciales() {
-        placerCases(nbBonus, true,Piege.RESSORT);
+        placerCases(nbBonus, true,null);
         placerCases(nbMalus, false,Piege.RESSORT);
         placerCases(nbMalus, false,Piege.BOMBE);
     }

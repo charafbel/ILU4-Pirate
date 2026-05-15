@@ -1,7 +1,10 @@
 package project.control;
 
 import project.boundary.IBoundary;
+
 import project.entity.Case;
+import project.entity.CaseMalus;
+import project.entity.Piege;
 import project.entity.Pirate;
 import java.util.function.BiPredicate;
 
@@ -13,6 +16,7 @@ public class ControlJeuPirate implements IControlJeuPirate {
     ControlVerifierFinPartie controlFinPartie;
     ControlLancerDe controlLancerDe;
     IControlJeu controlJeu;
+    IControlLancerBombe controlLancerBombe;
 
     public ControlJeuPirate(
         IBoundary boundary,
@@ -20,7 +24,8 @@ public class ControlJeuPirate implements IControlJeuPirate {
         ControlVerifierFinPartie controlFinPartie,
         ControlDeplacement controlDeplacement,
         ControlLancerDe controlLancerDe,
-        IControlJeu controlJeu
+        IControlJeu controlJeu,
+        IControlLancerBombe controlLancerBombe
     ) {
         super();
         this.boundary = boundary;
@@ -29,6 +34,7 @@ public class ControlJeuPirate implements IControlJeuPirate {
         this.controlDeplacement = controlDeplacement;
         this.controlLancerDe = controlLancerDe;
         this.controlJeu = controlJeu;
+        this.controlLancerBombe = controlLancerBombe;
         this.controlDeplacement.setControlJeuPirate(this);
         this.controlLancerDe.setControlJeuPirate(this);
     }
@@ -123,7 +129,26 @@ public class ControlJeuPirate implements IControlJeuPirate {
                 : controlJeu.pirate2();
         deplacer(joueurActuel, lancerDe);
     }
-
+    
+    public void debutLancerBombe() {
+    	    boundary.saisirLancerBombe(this);
+    }
+    @Override
+    public void lancementBombe(int offset) {
+    	    Pirate joueurLanceur = controlJeu.joueurActuel()==1?controlJeu.pirate1():controlJeu.pirate2();
+    	    Pirate joueurCible = controlJeu.joueurActuel()==1?controlJeu.pirate2():controlJeu.pirate1();
+    	    controlLancerBombe.lancerBombe(joueurLanceur, joueurCible, offset);
+    	    boundary.afficherJoueur(joueurLanceur.getNom(), joueurLanceur.getPv(), joueurLanceur.getListEquipements().size());
+    	    boundary.afficherJoueur(joueurCible.getNom(), joueurCible.getPv(), joueurCible.getListEquipements().size());
+    	    if(!estFinPartie()) {
+    	    	    controlJeu.changerJoueur();
+    	    	    lancerDe();
+    	    }else {
+    	      	boundary.afficherNotitification("La partie est terminée");
+        	    FinDePartieAffichage();
+    	    }
+    }
+    
     public void finAffichageDeplacement() {
         //lance la fonction qui permet d'activer la case
 
@@ -132,9 +157,17 @@ public class ControlJeuPirate implements IControlJeuPirate {
             // a remplacer par l'activation de case
         	    Pirate joueur = controlJeu.joueurActuel()==1?controlJeu.pirate1():controlJeu.pirate2();
         	    Case c = controlJeu.plateau().getCase(joueur.getPosition());
-        	    activerCase(joueur, c);
-            controlJeu.changerJoueur();
-            lancerDe();
+        	    //activerCase(joueur, c);
+        	    if(c instanceof CaseMalus) {
+        	    	    Piege type = ((CaseMalus) c).getTypeMalus();
+        	    	    if(type==Piege.BOMBE) {
+        	    	    	    debutLancerBombe();
+        	    	    }
+        	    }else {
+        	      	controlJeu.changerJoueur();
+                lancerDe();
+        	    }
+            
         }else {
         	    boundary.afficherNotitification("La partie est terminée");
         	    FinDePartieAffichage();

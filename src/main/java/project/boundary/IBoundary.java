@@ -23,4 +23,6 @@ public interface IBoundary {
     void afficherNotitification(String message);
     
     void initJoueurs(IControlJeuPirate controlJeuPirate);
+    
+    void saisirLancerBombe(IControlJeuPirate controlJeuPirate);
 }

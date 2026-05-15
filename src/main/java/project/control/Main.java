@@ -20,13 +20,15 @@ public class Main {
         ControlVerifierFinPartie controlVerifierFinPartie =
             new ControlVerifierFinPartie(boundary, jeu);
         ControlLancerDe lancerDeControler = new ControlLancerDe(boundary);
+        ControlLancerBombe lancerBombe = new ControlLancerBombe();
         ControlJeuPirate controlJeuPirate = new ControlJeuPirate(
             boundary,
             controlActiverCase,
             controlVerifierFinPartie,
             controlDeplacement,
             lancerDeControler,
-            controlJeu
+            controlJeu,
+            lancerBombe
         );
 
         controlJeuPirate.initJoueurs();
