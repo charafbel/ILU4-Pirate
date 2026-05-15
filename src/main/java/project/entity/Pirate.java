@@ -16,7 +16,11 @@ public class Pirate {
         listEquipements = new ArrayList<>();
     }
 
-    public String getNom() {
+    public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getNom() {
         return this.nom;
     }
 

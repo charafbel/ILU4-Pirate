@@ -3,6 +3,7 @@ package project.boundary;
 import java.util.Scanner;
 
 import project.control.IControlDeplacement;
+import project.control.IControlJeuPirate;
 import project.control.IControlLancerDe;
 
 public class BoundaryJeuPirate implements IBoundary {
@@ -70,4 +71,21 @@ public class BoundaryJeuPirate implements IBoundary {
     public void afficherNotitification(String message) {
         System.out.println(message);
     }
+
+	@Override
+	public void initJoueurs(IControlJeuPirate controlJeuPirate) {
+		Scanner scan = new Scanner(System.in);
+        System.out.println(
+            "Choisir nom joueur1 "
+        );
+        String nomJoueur1 = scan.nextLine();
+        System.out.println(
+                "Choisir nom joueur2 "
+            );
+        String nomJoueur2 = scan.nextLine();
+        scan.close();
+        controlJeuPirate.finInitJoueurs(nomJoueur1,nomJoueur2);
+	}
+
+
 }

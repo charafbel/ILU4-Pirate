@@ -1,6 +1,7 @@
 package project.boundary;
 
 import project.control.IControlDeplacement;
+import project.control.IControlJeuPirate;
 import project.control.IControlLancerDe;
 
 public interface IBoundary {
@@ -20,4 +21,6 @@ public interface IBoundary {
     void afficherLancerDe(IControlLancerDe controlLancerDe, int de1, int de2);
 
     void afficherNotitification(String message);
+    
+    void initJoueurs(IControlJeuPirate controlJeuPirate);
 }

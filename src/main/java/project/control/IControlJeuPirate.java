@@ -1,6 +1,5 @@
 package project.control;
 
-import project.entity.Pirate;
 
 public interface IControlJeuPirate {
     public void debutJeu();
@@ -9,4 +8,5 @@ public interface IControlJeuPirate {
 
     public void finAffichageDeplacement();
     public void FinLancerDe(int lancerDe);
+    void finInitJoueurs(String nomJoueur1, String nomJoueur2);
 }

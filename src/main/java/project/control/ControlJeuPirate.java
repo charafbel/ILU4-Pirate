@@ -32,6 +32,16 @@ public class ControlJeuPirate implements IControlJeuPirate {
         this.controlDeplacement.setControlJeuPirate(this);
         this.controlLancerDe.setControlJeuPirate(this);
     }
+    
+    public void initJoueurs() {
+    	boundary.initJoueurs(this);
+    }
+    
+    public void finInitJoueurs(String nom1 , String nom2) {
+    	controlJeu.pirate1().setNom(nom1);
+    	controlJeu.pirate2().setNom(nom2);
+
+    }
 
     public void lancerDe() {
         // lance les 2 de et les sauvegardes
