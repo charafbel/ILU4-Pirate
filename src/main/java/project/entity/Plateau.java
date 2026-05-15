@@ -25,7 +25,7 @@ public class Plateau {
         }
     }
 
-    private void placerCases(int nb, boolean bonus) {
+    private void placerCases(int nb, boolean bonus,Piege piege) {
         //bonus=true=>CASE BONUS sinon Case MALUS
         int placee = 0;
         while (placee < nb) {
@@ -34,7 +34,7 @@ public class Plateau {
                 if (bonus) {
                     cases[indice] = new CaseBonus(Equipement.BOUCLIER_RESSORT);
                 } else {
-                    cases[indice] = new CaseMalus(Piege.RESSORT);
+                    cases[indice] = new CaseMalus(piege);
                 }
                 placee++;
             }
@@ -42,8 +42,9 @@ public class Plateau {
     }
 
     private void placerCasesSpeciales() {
-        placerCases(nbBonus, true);
-        placerCases(nbMalus, false);
+        placerCases(nbBonus, true,Piege.RESSORT);
+        placerCases(nbMalus, false,Piege.RESSORT);
+        placerCases(nbMalus, false,Piege.BOMBE);
     }
 
     public Case getCase(int indice) {
