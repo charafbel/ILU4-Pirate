@@ -1,9 +1,10 @@
-<<<<<<< HEAD
 /target/
 .idea/compiler.xml
 .idea/misc.xml
 .idea/jarRepositories.xml
 /.idea
-=======
+
 /bin/
->>>>>>> feature/entity
+/.metadata/
+out
+*.xml

@@ -4,6 +4,10 @@
  */
 package project.boundary;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JComponent;
+
 /**
  *
  * @author alban
@@ -11,12 +15,60 @@ package project.boundary;
 public class testBoard extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(testBoard.class.getName());
+    
+    private Pawn pionJoueur1;
+    private Pawn pionJoueur2;
+    private int posJ1 = 0;
+    private int posJ2 = 0;
 
     /**
      * Creates new form testBoard
      */
     public testBoard() {
         initComponents();
+        
+        lancerTestComplet();
+    }
+    
+    private void lancerTestComplet() {
+        List<JComponent> casesVisuelles = new ArrayList<>();
+        
+        for (int i = 0; i < 30; i++) {
+            casesVisuelles.add(new CaseComponent());
+        }
+        
+        board1.initBoard(casesVisuelles);
+        
+        Pawn pionJoueur1 = new Pawn();
+        pionJoueur1.setSize(50, 50);
+        pionJoueur1.setImagePath("/images/bob.png");
+        
+        Pawn pionJoueur2 = new Pawn();
+        pionJoueur2.setSize(50, 50); 
+
+        board1.movePlayer(pionJoueur1, 0, true);
+        board1.movePlayer(pionJoueur2, 0, false);
+        pionJoueur2.setImagePath("/images/plankton.png");
+        
+        
+        this.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_LEFT) {
+                    if (posJ1 < 29) {
+                        posJ1++;
+                        board1.movePlayer(pionJoueur1, posJ1, true);
+                    }
+                } else if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_RIGHT) {
+                    if (posJ2 < 29) {
+                        posJ2++;
+                        board1.movePlayer(pionJoueur2, posJ2, false);
+                    }
+                }
+            }
+        });
+        this.setFocusable(true);
+        this.requestFocusInWindow();
     }
 
     /**

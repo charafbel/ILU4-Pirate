@@ -1,8 +1,8 @@
 package project.control;
 
-import project.boundary.iBoundary;
+import project.boundary.IBoundary;
 
-public interface INoyauFonctionnel extends iBoundary {
+public interface INoyauFonctionnel extends IBoundary {
   // info joueur 1
   int getPvJ1();
   int getPositionJ1();
