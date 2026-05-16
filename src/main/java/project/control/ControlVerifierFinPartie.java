@@ -25,7 +25,7 @@ public class ControlVerifierFinPartie implements IControlVerifierFinPartie {
   }
 
   public boolean estFinPartie(Pirate J1, Pirate J2, int nb_cases) {
-	  Predicate<Pirate> estHorsJeu = pirate -> pirate.getPosition() == nb_cases || pirate.getPv() <= 0;
+	  Predicate<Pirate> estHorsJeu = pirate -> pirate.getPosition() == (nb_cases-1) || pirate.getPv() <= 0;
       
       return estHorsJeu.test(J1) || estHorsJeu.test(J2);
   }
