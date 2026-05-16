@@ -2,98 +2,104 @@ package project.boundary;
 
 import java.util.Scanner;
 
-import project.control.ControlJeuPirate;
+import project.control.IControlBattle;
 import project.control.IControlDeplacement;
 import project.control.IControlJeuPirate;
 import project.control.IControlLancerDe;
 
 public class BoundaryJeuPirate implements IBoundary {
 
-    public BoundaryJeuPirate() {}
+	public BoundaryJeuPirate() {
+	}
 
-    @Override
-    public void afficherCase(int indice, String type) {
-        System.out.println("Case : " + indice + ": " + type);
-    }
+	@Override
+	public void afficherCase(int indice, String type) {
+		System.out.println("Case : " + indice + ": " + type);
+	}
 
-    @Override
-    public void afficherJoueur(String nomPirate, int nbCoeur, int equipement) {
-        System.out.println(
-            "Le pirate : " +
-                nomPirate +
-                " possède " +
-                nbCoeur +
-                " et possède " +
-                equipement
-        );
-    }
+	@Override
+	public void afficherJoueur(String nomPirate, int nbCoeur, int equipement) {
+		System.out.println("Le pirate : " + nomPirate + " possède " + nbCoeur + " et possède " + equipement);
+	}
 
-    @Override
-    public void afficherFinJeu(String nomPirateGagnant) {
-        System.out.println("Le gagnant est : " + nomPirateGagnant);
-    }
+	@Override
+	public void afficherFinJeu(String nomPirateGagnant) {
+		System.out.println("Le gagnant est : " + nomPirateGagnant);
+	}
 
-    @Override
-    public void afficherDeplacementPirate(
-        IControlDeplacement controlDeplacement,
-        String nomPirate,
-        int positionDepart,
-        int positionArrive
-    ) {
-        System.out.println(
-            "Le pirate " +
-                nomPirate +
-                " se déplace de la case " +
-                positionDepart +
-                " à la case " +
-                positionArrive
-        );
-        controlDeplacement.finDeplacement();
-    }
+	@Override
+	public void afficherDeplacementPirate(IControlDeplacement controlDeplacement, String nomPirate, int positionDepart,
+			int positionArrive) {
+		System.out.println(
+				"Le pirate " + nomPirate + " se déplace de la case " + positionDepart + " à la case " + positionArrive);
+		controlDeplacement.finDeplacement();
+	}
 
-    @Override
-    public void afficherLancerDe(
-        IControlLancerDe controlLancerDe,
-        int de1,
-        int de2
-    ) {
-        Scanner scan = new Scanner(System.in);
-        System.out.println(
-            "Vous devez lancer les Dé : (appuyer sur une touche)"
-        );
-        scan.nextLine();
-        int de = de1 + de2;
-        System.out.println("Le résultat du dé est : " + de);
-        // scan.close();
-        controlLancerDe.finAfficherLancerDe();
-    }
+	@Override
+	public void afficherLancerDe(IControlLancerDe controlLancerDe, int de1, int de2) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Vous devez lancer les Dé : (appuyer sur une touche)");
+		scan.nextLine();
+		int de = de1 + de2;
+		System.out.println("Le résultat du dé est : " + de);
+		// scan.close();
+		controlLancerDe.finAfficherLancerDe();
+	}
 
-    @Override
-    public void afficherNotitification(String message) {
-        System.out.println(message);
-    }
+	@Override
+	public void afficherNotitification(String message) {
+		System.out.println(message);
+	}
 
 	@Override
 	public void initJoueurs(IControlJeuPirate controlJeuPirate) {
 		Scanner scan = new Scanner(System.in);
-        System.out.println(
-            "Choisir nom joueur1 "
-        );
-        String nomJoueur1 = scan.nextLine();
-        System.out.println(
-                "Choisir nom joueur2 "
-            );
-        String nomJoueur2 = scan.nextLine();
-        //scan.close();
-        controlJeuPirate.finInitJoueurs(nomJoueur1,nomJoueur2);
+		System.out.println("Choisir nom joueur1 ");
+		String nomJoueur1 = scan.nextLine();
+		System.out.println("Choisir nom joueur2 ");
+		String nomJoueur2 = scan.nextLine();
+		// scan.close();
+		controlJeuPirate.finInitJoueurs(nomJoueur1, nomJoueur2);
 	}
-	
+
 	@Override
 	public void saisirLancerBombe(IControlJeuPirate controlJeuPirate) {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("***Vous êtes sur une case bombe, vous devez la lancer ! ***\nChoisissez le numéro de la case où lancer la bombe : ");
-		int offset = scan.nextInt() -1 ;
+		System.out.println(
+				"***Vous êtes sur une case bombe, vous devez la lancer ! ***\nChoisissez le numéro de la case où lancer la bombe : ");
+		int offset = scan.nextInt() - 1;
 		controlJeuPirate.lancementBombe(offset);
+	}
+
+	@Override
+	public void afficherAnimationBattle(IControlBattle controleBattle) {
+		System.out.println("Animation de battle...");
+		controleBattle.finAfficherAnimationBattle();
+	}
+
+	@Override
+	public void battleLancerDe(IControlBattle controleBattle, String nomPirate1, String nomPirate2, int lancerDe1,
+			int lancerDe2) {
+
+		Scanner scan = new Scanner(System.in);
+
+		// lancer du joueur1
+		System.out.println(nomPirate1 + " doit lancer les Dé : (appuyer sur une touche)");
+		scan.nextLine();
+		System.out.println(nomPirate1 + " à obtenu un " + lancerDe1);
+
+		// lancer du joueur2
+		System.out.println(nomPirate2 + " doit lancer les Dé : (appuyer sur une touche)");
+		scan.nextLine();
+		System.out.println(nomPirate2 + " à obtenu un " + lancerDe2);
+
+		controleBattle.finBattleLancerDe();
+	}
+
+	@Override
+	public void afficherResultBattle(IControlBattle controleBattle, String nomPirateGagnant) {
+		System.out.println("le pirate " + nomPirateGagnant + " gagne la bataille");
+		controleBattle.finAfficherResultBattle();
 	}
 
 }
