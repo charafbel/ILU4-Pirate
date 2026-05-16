@@ -1,28 +1,32 @@
 package project.boundary;
 
+import project.control.IControlBattle;
 import project.control.IControlDeplacement;
 import project.control.IControlJeuPirate;
 import project.control.IControlLancerDe;
 
 public interface IBoundary {
-    void afficherCase(int indice, String type);
+	void afficherCase(int indice, String type);
 
-    void afficherJoueur(String nomPirate, int nbCoeur, int equipement);
+	void afficherJoueur(String nomPirate, int nbCoeur, int equipement);
 
-    void afficherFinJeu(String nomPirateGagnant);
+	void afficherFinJeu(String nomPirateGagnant);
 
-    void afficherDeplacementPirate(
-        IControlDeplacement controlDeplacement,
-        String nomPirate,
-        int positionDepart,
-        int positionArrive
-    );
+	void afficherDeplacementPirate(IControlDeplacement controlDeplacement, String nomPirate, int positionDepart,
+			int positionArrive);
 
-    void afficherLancerDe(IControlLancerDe controlLancerDe, int de1, int de2);
+	void afficherLancerDe(IControlLancerDe controlLancerDe, int de1, int de2);
 
-    void afficherNotitification(String message);
-    
-    void initJoueurs(IControlJeuPirate controlJeuPirate);
-    
-    void saisirLancerBombe(IControlJeuPirate controlJeuPirate);
+	void afficherNotitification(String message);
+
+	void initJoueurs(IControlJeuPirate controlJeuPirate);
+
+	void saisirLancerBombe(IControlJeuPirate controlJeuPirate);
+
+	void afficherAnimationBattle(IControlBattle controleBattle);
+
+	void battleLancerDe(IControlBattle controleBattle, String nomPirate1, String nomPirate2, int lancerDe1,
+			int lancerDe2);
+
+	void afficherResultBattle(IControlBattle controleBattle, String nomPirateGagnant);
 }

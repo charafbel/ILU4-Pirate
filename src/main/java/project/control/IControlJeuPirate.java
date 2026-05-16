@@ -9,4 +9,5 @@ public interface IControlJeuPirate {
     public void finAffichageDeplacement();
     public void FinLancerDe(int lancerDe);
     void finInitJoueurs(String nomJoueur1, String nomJoueur2);
+    void finBattle(String nomPiarteGagnant);
 }
