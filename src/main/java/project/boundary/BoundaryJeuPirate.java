@@ -91,8 +91,8 @@ public class BoundaryJeuPirate implements IBoundary {
 	@Override
 	public void saisirLancerBombe(IControlJeuPirate controlJeuPirate) {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Choisir un offset pour lancer la bombe ");
-		int offset = scan.nextInt();
+		System.out.println("***Vous êtes sur une case bombe, vous devez la lancer ! ***\nChoisissez le numéro de la case où lancer la bombe : ");
+		int offset = scan.nextInt() -1 ;
 		controlJeuPirate.lancementBombe(offset);
 	}
 
